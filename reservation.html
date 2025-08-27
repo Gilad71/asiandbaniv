@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="fonts.css">
+        <title>מסעדת אסי ובניו</title>
+    </head>
+
+    <body>
+        <div class="header">
+            <img src="מדיה/logo.png" class="logo">
+            <div class="menu">
+                <h1>מסעדת אסי ובניו</h1>
+                <div class="menulinks">
+                    <div class="link" id="home">
+                        <a href="index.html">בית</a>
+                    </div>
+
+                    <div class="link" id="aboutUs">
+                        <a href="about_us.html">עלינו</a>
+                    </div>
+
+                    <div class="link" id="menu">
+                        <a href="menu.html">תפריט</a>
+                    </div>
+
+                    <div class="link" id="needs">
+                        <a href="needs.html">דרושים</a>
+                    </div>
+
+                    <div class="link" id="orders">
+                        <a href="orders.html">הזמנות</a>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+
+        <div class="body">
+            <form id="resForm">
+                <label for="name">שם מלא: </label>
+                <input type="text" id="name"><br>
+                <label for="name">טלפון: </label>
+                <input type="tel" id="tel"><br>
+                <label for="name">מספר אנשים: </label>
+                <input type="number" id="nop"><br>
+                <label for="time">שעה: </label>
+                <input type="time" id="time" step="5400" value="12:00">
+
+                <script>
+                const timeInput = document.getElementById('time');
+
+                timeInput.addEventListener('input', () => {
+                    const step = 5400;
+                    const [hours, minutes] = timeInput.value.split(':').map(Number);
+                    let totalSeconds = hours * 3600 + minutes * 60;
+                    totalSeconds = Math.round(totalSeconds / step) * step;
+                    const newHours = Math.floor(totalSeconds / 3600);
+                    const newMinutes = (totalSeconds % 3600) / 60;
+                    timeInput.value = `${String(newHours).padStart(2,'0')}:${String(newMinutes).padStart(2,'0')}`;
+                });
+                </script>
+                <br>
+                <label>סניף:</label><br>
+                <label for="tel-aviv">תל אביב</label>
+                <input type="radio" name="branche" id="tel-aviv" value="tel-aviv">
+                <label for="hadera">חדרה</label>
+                <input type="radio" name="branche" id="hadera" value="hadera">
+                <label for="bear-sheva">באר שבע</label>
+                <input type="radio" name="branche" id="bear-sheva" value="bear-sheva">
+                <label for="haifa">חיפה</label>
+                <input type="radio" name="branche" id="haifa" value="haifa">
+                <label for="eilat">אילת</label>
+                <input type="radio" name="branche" id="eilat" value="eilat"><br>
+                <input type="submit" class="btn">
+            </form>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="reservation.js"></script>
+    </body>
+</html>
