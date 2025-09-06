@@ -351,25 +351,73 @@ input[type="radio"]{
     text-align: center;
     font-family: heebo-light;
 }
-.tables-display {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
+form input[type="text"]{
+    border-radius: 1vw;
+    color: #1b3c3d;
 }
-.table {
-  width: 30px;
-  height: 30px;
-  margin: 2px;
-  text-align: center;
-  line-height: 30px;
-  border-radius: 4px;
-  font-size: 12px;
+form input[type="tel"]{
+    border-radius: 1vw;
+    border: solid 0.15vw #1b3c3d;
 }
-.available {
-  background-color: #4caf50;
-  color: white;
+form input[type="email"]{
+    border-radius: 1vw;
+    border: solid 0.15vw #1b3c3d;
 }
-.busy {
-  background-color: #f44336;
-  color: white;
+form input[type="time"]{
+    border-radius: 1vw;
+    border: solid 0.15vw #1b3c3d;
 }
+form input[type="number"]{
+    border-radius: 1vw;
+    border: solid 0.15vw #1b3c3d;
+}
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #999;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
+}
+
+input[type="radio"]:hover {
+    border-color: #1b3c3d;
+    transform: scale(1.1);
+}
+
+input[type="radio"]:checked {
+    border-color: #1b3c3d;
+    animation: pulse-outline 0.4s linear 3 alternate;
+}
+
+input[type="radio"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background-color: #1b3c3d;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes pulse-outline {
+    0% {
+        outline: 2px solid #999;
+        outline-offset: 0;
+    }
+    50% {
+        outline: 2px solid #1b3c3d;
+        outline-offset: -4px;
+    }
+    100% {
+        outline: 2px solid #1b3c3d;
+        outline-offset: 0;
+    }
+}
+
