@@ -2,7 +2,7 @@ body{
     margin: 0;
     direction: rtl;
     text-align: right;
-
+    scroll-behavior: smooth;
 }
 .logo{
     flex: 1;
@@ -420,4 +420,5 @@ input[type="radio"]:checked::before {
         outline-offset: 0;
     }
 }
+
 
